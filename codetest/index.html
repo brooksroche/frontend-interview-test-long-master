@@ -1,0 +1,102 @@
+<!DOCTYPE HTML >
+<html>
+<head>
+	<title>The network</title>
+	<link rel="stylesheet" type="text/css" href="normalize.css" />
+	<link rel="stylesheet" type="text/css" href="resources/jquery-ui.css">
+	<link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
+<body>
+	
+	<div id="header">
+		<div id="logo">
+			<img src="images/logo.png" alt="the network"/>
+		</div>	
+		<div id="search">
+			<form method="get" action="#" class="main-input">
+				<input type="search" name="terms" placeholder="Thoughts?" class="postInput"/>
+				<input type="submit" value="Go"/>
+			</form>
+		</div>
+		<div class="nav">
+			<a href="#">Home</a>
+			<a href="#" id="dialog-link">Post an update</a>
+			<a href="#" class="currentavatar"></a>
+		</div>
+	</div>
+	
+	<div id="page">
+	</div>
+
+	<div class="footer">
+		<p>This is a footer message</p>
+	</div>
+
+<div id="dialog" title="Post An Update">
+	<form method="get" action="#" class="main-input">
+		<input type="text" name="terms" placeholder="Thoughts?" class="dialog-input"/>
+	</form>
+</div>
+
+<script type="text/template" id="avatarTemplate">
+  <img src="{{currentavatar}}">
+</script>
+
+<script type="text/template" id="pageTemplate">
+<div class="sidebar">
+	<img src="{{currentavatar}}"> {{currentuser}}
+</div>
+<div class="feed-container">
+	<h3>Updates</h3>
+	<div class="feed">
+	  {{#each posts}}
+	  <div class="post">
+	    <div class="avatar">
+	      <img src="{{avatar}}">
+	    </div>
+	    <div class="post-content">
+	      <a href="#">{{username}}</a>
+	      {{content}}
+	    </div>
+	    <div class="post-comments">
+	      {{#each comments}}
+	      <div class="comment">
+	        <div class="avatar">
+	          <img src="{{avatar}}">
+	        </div>
+	        <a href="#">{{username}}</a>
+	        {{content}}
+	      </div>
+	      {{/each}}
+	      <input type="text" name="comment" placeholder="post a comment" />
+	    </div>
+	  </div>
+	  {{/each}}				
+	</div>
+</div>
+</script>
+
+<script type="text/template" id="newPost">
+  <div class="post">
+    <div class="avatar">
+      <img src="{{currentavatar}}">
+    </div>
+    <div class="post-content">
+      <a href="#">{{currentuser}}</a>
+      {{postcontent}}
+    </div>
+    <div class="post-comments">
+      <input type="text" name="comment" placeholder="post a comment" />
+    </div>
+  </div>
+</script>
+
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js"></script>-->
+<script src="resources/jquery-2.1.1.min.js"></script>
+<script src="resources/jquery-ui.js"></script>
+<script src="resources/handlebars-v2.0.0.js"></script>
+<script src="app.js"></script>	
+
+</body>
+</html>
